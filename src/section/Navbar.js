@@ -1,14 +1,17 @@
 "use client";
 import { logo } from "@/assets";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const dataNavbar = [
   {
     title: "Home",
+    page: "Home",
   },
   {
     title: "About",
+    page: "About",
   },
   {
     title: "Promotions",
@@ -17,9 +20,11 @@ const dataNavbar = [
   },
   {
     title: "Blogs",
+    page: "Blogs",
   },
   {
-    title: "Contact Us",
+    title: "contact Us",
+    page: "contact Us",
   },
 ];
 
@@ -39,8 +44,8 @@ const Navbar = () => {
           </div>
           <div className="flex">
             {dataNavbar?.map((item, i) => (
-              <div
-                onClick={() => alert(`memilih ${item.title}`)}
+              <Link
+                href={`/${item.page}`}
                 key={i}
                 className="px-[16px] text-[14px] font-bold cursor-pointer relative"
               >
@@ -52,7 +57,7 @@ const Navbar = () => {
                   </div>
                 )}
                 <div className="opacity-70">{item.title}</div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="flex items-center">
